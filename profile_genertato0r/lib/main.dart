@@ -1,26 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:profile_genertato0r/pages/wl.dart';
 
 void main() {
-  runApp(new MaterialApp(
-    title: "welcome back",
-    home: new Welcome(),
-  ));
+  runApp(MyApp());
 }
 
-class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return new Material(
-      color: Colors.blue,
-      child: Center(
-        child: new Text("hello  Material!",
-            textDirection: TextDirection.ltr,
-            style: new TextStyle(
-                fontWeight: FontWeight.w800, fontStyle: FontStyle.italic)),
-      ),
+    return MaterialApp(
+      title: "My app ",
+      home: Welcm(),
     );
-    ;
   }
 }
