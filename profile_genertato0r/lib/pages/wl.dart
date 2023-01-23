@@ -7,7 +7,24 @@ class Welcm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.green,
-      child: Center(child: Text("This is my first app by myself")),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                color: Colors.red,
+                child: Text("helo"),
+              ),
+              Container(
+                color: Colors.red,
+                child: Text("helo"),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
