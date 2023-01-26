@@ -41,7 +41,8 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 new InkWell(
-                  child: new Text("Button"),
+                  child:
+                      new Text("Button", style: TextStyle(color: Colors.green)),
                   onTap: () => debugPrint("Button Tapped"),
                 ),
               ],
