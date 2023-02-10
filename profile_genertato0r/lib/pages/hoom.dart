@@ -1,51 +1,64 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class home extends StatefulWidget {
+  const home({super.key});
 
-  void _onPress() {
-    print("Search Tapped!");
+  @override
+  State<home> createState() => _homeState();
+}
+
+class _homeState extends State<home> {
+  int _moneyCounter = 0;
+
+  void _rainMoney() {
+    // immportant  - setstate is called each time we need to update the UI
+    setState(() {
+      _moneyCounter = _moneyCounter + 100;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          backgroundColor: Colors.pink,
-          title: Text("Fancy you"),
-          actions: <Widget>[
-            new IconButton(
-              icon: new Icon(Icons.send),
-              onPressed: () => debugPrint("button tapped!"),
+    return Material(
+        child: Scaffold(
+            appBar: AppBar(
+              title: Text("AppBAr"),
+              backgroundColor: Colors.pink,
             ),
-            new IconButton(
-              icon: new Icon(Icons.search),
-              onPressed: _onPress,
-            )
-          ],
-        ),
-
-        // other properties
-        backgroundColor: Colors.grey.shade200,
-        body: new Container(
-            alignment: Alignment.center,
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            body: new Container(
+                child: new Column(
               children: <Widget>[
-                new Text(
-                  "Hello frmds",
-                  style: TextStyle(
-                    fontSize: 14.5,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.deepOrange,
+                Center(
+                  child: new Text(
+                    "Get Rich! ",
+                    style: new TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 29),
                   ),
                 ),
-                new InkWell(
-                  child:
-                      new Text("Button", style: TextStyle(color: Colors.green)),
-                  onTap: () => debugPrint("Button Tapped"),
-                ),
+                new Expanded(
+                    child: new Center(
+                        child: new Text(
+                  "$_moneyCounter",
+                  style: new TextStyle(
+                    color:
+                        _moneyCounter > 2000 ? Colors.red : Colors.greenAccent,
+                    fontSize: 46.9,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ))),
+                new Expanded(
+                    child: new Center(
+                  child: new TextButton(
+                    onPressed: () => _rainMoney(),
+                    child: new Text(
+                      "Let It Rain!",
+                      style: TextStyle(fontSize: 19.9),
+                    ),
+                  ),
+                ))
               ],
-            )));
+            ))));
   }
 }
